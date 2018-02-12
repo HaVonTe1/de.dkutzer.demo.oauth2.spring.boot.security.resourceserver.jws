@@ -1,0 +1,31 @@
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: spring-boot-security-oauth2-server-spring-security-resourceserver
+server:
+  port: 8081
+
+logging.level.de: debug
+logging.level.org.springframework.web: debug
+logging.level.org.springframework.security: trace
+logging.level.org.springframework.web-security: trace
+logging.level.org.keycloak: trace
+
+management:
+  endpoints:
+    web:
+      expose: '*'
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: true
+      enabled: true
+
+
+security:
+  oauth2:
+    resource:
+      id: demo-client
+      jwt:
+        key-value: -----BEGIN PUBLIC KEY----- $realmKey -----END PUBLIC KEY-----
